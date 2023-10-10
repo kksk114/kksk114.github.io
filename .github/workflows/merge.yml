@@ -1,0 +1,18 @@
+name: merge
+on: [push]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Run Hello script
+        run: |
+          chmod +x Hello.sh
+          ./Hello.sh 
+      - name: checkout main
+        run: git checkout main
+      - name: merge dev
+        run: git merge dev
+      - name: git push
+        run: git push origin main
