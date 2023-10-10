@@ -1,0 +1,35 @@
+name: Blog Packaging
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+
+      - name: Install Hexo dependencies
+        run: npm ci
+
+      - name: Build Hexo blog
+        run: npx hexo generate
+
+      - name: Push packaged files to main branch
+        run: |
+          git checkout main
+          git reset --hard HEAD
+          cp -r public/* .
+          git add .
+          git commit -m "Update packaged files"
+          git push -f origin main
