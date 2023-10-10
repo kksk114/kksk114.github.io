@@ -12,7 +12,7 @@ jobs:
       - name: Run Hello script
         run: |
           chmod +x Hello.sh
-          ./Hello.sh
+          ./Hello.sh 
       - name: checkout main
         run: git checkout main
       - name: merge dev
