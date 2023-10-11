@@ -6,6 +6,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+      - name: Git fetch
+        run: git fetch
       - name: Run Hello script
         run: |
           chmod +x Hello.sh
