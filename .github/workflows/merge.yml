@@ -15,6 +15,6 @@ jobs:
       - name: checkout main
         run: git checkout main
       - name: merge dev
-        run: git merge --no-ff dev
+        run: git merge --no-ff --allow-unrelated-histories dev
       - name: git push
         run: git push origin main
