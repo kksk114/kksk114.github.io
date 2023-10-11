@@ -14,6 +14,10 @@ jobs:
           ./Hello.sh 
       - name: checkout main
         run: git checkout main
+      - name: config
+        run: |
+          git config --global user.email "2507836311@qq.com"
+          git config --global user.name "kksk996"
       - name: merge dev
         run: git merge --no-ff --allow-unrelated-histories dev
       - name: git push
