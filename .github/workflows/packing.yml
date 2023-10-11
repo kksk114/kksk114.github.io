@@ -7,13 +7,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-      - name: nodejs
-        run: |
-          sudo apt-get update
-          sudo apt-get install nodejs
-          curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
-      - name: nvm
-        run: nvm install node
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
       - name: hexo
         run: |
           npm install -g hexo-cli
