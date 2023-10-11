@@ -22,7 +22,9 @@ jobs:
           git config --global user.email "2507836311@qq.com"
           git config --global user.name "kksk114"
       - name: Checkout main branch
-        run: git checkout main
+        run: |
+          git fetch
+          git checkout main
       - name: Copy generated files
         run: cp -R public/. .
       - name: Commit and push changes
