@@ -17,7 +17,7 @@ jobs:
       - name: config
         run: |
           git config --global user.email "2507836311@qq.com"
-          git config --global user.name "kksk996"
+          git config --global user.name "kksk114"
       - name: merge dev
         run: git merge --no-ff --allow-unrelated-histories dev
       - name: git push
