@@ -25,11 +25,6 @@ jobs:
         run: |
           git fetch
           git checkout main
-      - name: Copy generated files
-        run: |
-          cd ~
-          cd hexo-blog
-          cp -R public/kksk114.github.io
       - name: Commit and push changes
         run: |
           git add .
